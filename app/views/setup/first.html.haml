@@ -1,0 +1,41 @@
+%h1 Setup
+%h3.text-muted First Step - Basic Details
+
+%br
+
+= form_for :first, url: '/setup/second' do |f|
+
+  .form-header
+    %h4 Basic Details
+    %h6.text-muted
+      Basic information about your threads server.
+
+  .form-body
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :site_name, 'Site Name'
+          = f.text_field :site_name, placeholder: 'DroneHome', class: 'form-control'
+
+      .col-sm-6
+        .form-group
+          = f.label :cloudthreads_identifier, 'CloudThreads Server Identifier'
+          = f.text_field :cloudthreads_identifier, placeholder: 'dronehome', class: 'form-control'
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :site_summary, 'Site Summary'
+          = f.text_field :site_summary, placeholder: 'Community of drone enthusiasts who like to help each other.', class: 'form-control'
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :site_description, 'Site Description'
+          = f.text_area :site_description, placeholder: 'Learn about drones and UAVs, talk with other people also interested in the hobby, discuss laws and regulations, and organize to fly together or lobby your government.', rows: 6, class: 'form-control'
+
+  .form-actions
+    = f.submit 'Cancel', class: 'btn btn-outline-default'
+    .float-xs-right
+      = f.submit 'Next', class: 'btn btn-outline-primary'

@@ -1,0 +1,42 @@
+%h1 Setup
+%h3.text-muted Third Step - Connect to Central
+
+%br
+
+= form_for :third, url: '/setup/complete' do |f|
+
+  .form-header
+    %h4 CloudThreads Central
+    %h6.text-muted
+      Establish a connection to CloudThreads Central. This allows you to
+      syndicate your local boards out to the entire CloudThreads network,
+      as well as subscribe to syndicated remote boards. 
+
+  .form-body
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :cloudthreads_identifier, 'CloudThreads Server Identifier'
+          = f.text_field :cloudthreads_identifier, placeholder: 'dronehome', class: 'form-control'
+          %small.text-muted
+            A unique name that will identify this server and any bases published from it.
+
+      .col-sm-6
+        .form-group
+          = f.label :site_name, 'CloudThreads Central API Key'
+          = f.text_field :api_key, placeholder: 'AHDD442NNNASKKP1VB82BBVV899910A', class: 'form-control'
+          %small.text-muted
+            API key generated for your server at CloudThreads Central.
+
+    .row
+      .col-sm-12
+        .text-xs-center
+          = f.button 'Connect', class: 'btn btn-primary'
+
+
+  .form-actions
+    = f.submit 'Back', class: 'btn btn-default'
+    .float-xs-right
+      = f.submit 'Skip', class: 'btn btn-default'
+      = f.submit 'Next', class: 'btn btn-outline-primary'

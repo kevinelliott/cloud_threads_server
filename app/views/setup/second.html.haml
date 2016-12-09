@@ -1,0 +1,46 @@
+%h1 Setup
+%h3.text-muted Second Step - Add a Local Message Board
+
+%br
+
+= form_for :second, url: '/setup/third' do |f|
+
+  .form-header
+    %h4 Local Message Boards
+    %h6.text-muted
+      Boards originate at your server. They can be optionally syndicated to CloudThreads Central for other servers to
+      subscribe to.
+
+  .form-body
+
+    %h5 Message Board #1
+    %p
+      Let's set up your first board.
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :board_name, 'Board Name'
+          = f.text_field :board_name, placeholder: 'General Drone Discussion', class: 'form-control'
+
+      .col-sm-6
+        .form-group
+          = f.label :cloudthreads_identifier, 'Local Board Identifier'
+          = f.text_field :cloudthreads_identifier, placeholder: 'general-drone-discussion', class: 'form-control'
+
+    .row
+      .col-sm-6
+        .form-group
+          = f.label :board_summary, 'Board Summary'
+          = f.text_field :board_summary, placeholder: 'Discussion about all things drone related.', class: 'form-control'
+
+      .col-sm-6
+        .form-group
+          = f.label :board_description, 'Board Description'
+          = f.text_area :board_description, placeholder: 'A longer description than the summary in order to elaborate on the purpose of the board, to state any rules, and to encourage discussion.', rows: 6, class: 'form-control'
+
+  .form-actions
+    = f.submit 'Back', class: 'btn btn-default'
+    .float-xs-right
+      = f.submit 'Skip', class: 'btn btn-default'
+      = f.submit 'Next', class: 'btn btn-outline-primary'
